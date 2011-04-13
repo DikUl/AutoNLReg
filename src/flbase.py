@@ -351,9 +351,9 @@ class FuzzyLogicBase(object):
             tmp = tmp[:-1] + " (1) : 1"
             out.append(tmp)
         return out
-		
+    
     def save_to_file(self, fln):
-    	f = file(fln, "wb")
+        f = file(fln, "wb")
         params = {}
         params['Name'] = 'test'
         params['Type'] = 'madmani'
