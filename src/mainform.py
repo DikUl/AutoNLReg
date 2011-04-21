@@ -122,6 +122,14 @@ class MainForm(gtk.Builder):
     
     def on_treeview2_row_activated(self, a, b, c):
         pass
+    
+    def on_gen_term_checkbutton1_toggled(self, widget):
+        if widget.get_active():
+            self.get_object("term_par_frame").set_sensitive(True)
+            self.get_object("col_box1").set_sensitive(True)
+        else:
+            self.get_object("term_par_frame").set_sensitive(False)
+            self.get_object("col_box1").set_sensitive(False)
         
     def on_fp_combobox1_changed(self, _):
         fp = self.get_object("fp_combobox1").get_active()
