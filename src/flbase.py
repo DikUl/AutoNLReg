@@ -105,21 +105,6 @@ class FuzzyLogicBase(object):
         
         inMasX = list(itertools.product(*inMas))
         self.mX, self.mY = len(inMasX), len(outMas)
-#        if len(inMas) == 0:
-#            pass
-#        elif len(inMas) == 1:
-#            pass
-#        elif len(inMas) == 2:
-#            inMasX = list(itertools.product(inMas[0], inMas[1]))
-#        elif len(inMas) > 2:
-#            inMasX = list(itertools.product(inMas[0], inMas[1]))
-#            for n, i in enumerate(inMas):
-#                if n >= 2:
-#                    inMasX = list(itertools.product(inMasX, inMas[n]))
-#                    inMasX = map(lambda x: x[0] + (x[1], ), inMasX)
-        
-#        print inMasX
-        
         outMasX = []
         temp = []
         for var in sorted(inMasX):
@@ -416,6 +401,7 @@ class FuzzyLogicBase(object):
 if __name__ == "__main__":
     flb = FuzzyLogicBase()
     
+# Первая тестовая задача: про краны
     flb.add_var("inVar1", "расстояние", type=InVar)
     flb.add_var("inVar2", "угол", type=InVar)
     flb.add_var("outer", "мощность", type=OutVar)
@@ -434,7 +420,8 @@ if __name__ == "__main__":
     flb.add_term("outer", "out13", "ноль", function=3, a=0.5)
     flb.add_term("outer", "out14", "пол_средняя", function=3, a=0.72)
     flb.add_term("outer", "out15", "пол_высокая", function=3, a=1)
-    
+
+# Вторая тестовая задача: теппература воды на угол поворота крана    
 #    flb.add_var("inVar1", "температура", type=InVar)
 #    flb.add_var("outer", "угол поворота", type=OutVar)
 #    flb.add_term("inVar1", "in11", "горячая", function=1, a=0, b=0, c=0.1, d=0.3)
@@ -452,8 +439,3 @@ if __name__ == "__main__":
     flb.build_pr()
     flb.build_minpr()
     flb.save_to_file("1.fis")
-#    print flb.get_counts()
-#    print flb.get_inputs_matcad()
-#    print flb.get_outputs_matcad()
-#    flb.get_rules()
-#    print flb.get_rules()

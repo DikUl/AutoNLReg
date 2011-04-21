@@ -99,6 +99,7 @@
     <property name="title" translatable="yes">AutoNLReg</property>
     <property name="default_width">640</property>
     <property name="default_height">480</property>
+    <property name="icon_name">x-office-address-book</property>
     <signal name="destroy" handler="on_window1_destroy"/>
     <child>
       <object class="GtkVBox" id="vbox1">
@@ -377,7 +378,7 @@
                     </child>
                     <child>
                       <object class="GtkTreeViewColumn" id="treeviewcolumn6">
-                        <property name="title">Правила</property>
+                        <property name="title">Правило</property>
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext9"/>
                           <attributes>
@@ -1181,12 +1182,13 @@
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="sv_open">
-                <property name="label" translatable="yes">Открыть</property>
+              <object class="GtkButton" id="sv_save">
+                <property name="label">gtk-save</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="on_sv_open_clicked"/>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_sv_save_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1218,7 +1220,7 @@
       </object>
     </child>
     <action-widgets>
-      <action-widget response="0">sv_open</action-widget>
+      <action-widget response="0">sv_save</action-widget>
       <action-widget response="0">sv_cancel</action-widget>
     </action-widgets>
   </object>

@@ -269,7 +269,7 @@ class MainForm(gtk.Builder):
     def on_sv_cancel_clicked(self, _):
         self.get_object("filechooserdialog1").hide()
         
-    def on_sv_open_clicked(self, _):
+    def on_sv_save_clicked(self, _):
         fln = self.get_object("filechooserdialog1").get_filename()
         f = file(fln, "wb")
         params = {}
@@ -331,42 +331,6 @@ class MainForm(gtk.Builder):
         for rule in params['Rules']:
             f.write(rule + "\n")
         
-#        f.write("""[System]
-#Name='test'
-#Type='mamdani'
-#Version=2.0
-#NumInputs=1
-#NumOutputs=1
-#NumRules=6
-#AndMethod='min'
-#OrMethod='max'
-#ImpMethod='min'
-#AggMethod='max'
-#DefuzzMethod='centroid'
-#
-#[Input1]
-#Name='input1'
-#Range=[0 5]
-#NumMFs=3
-#MF1='mf1':'gbellmf',[5.21 15.3 6.02328042328042]
-#MF2='mf2':'trimf',[0.12962962962963 2.12962962962963 4.12962962962963]
-#MF3='mf3':'trapmf',[1.08363492063492 2.68363492063492 3.08363492063492 4.68363492063492]
-#
-#[Output1]
-#Name='output1'
-#Range=[0 1]
-#NumMFs=3
-#MF1='mf1':'trimf',[-0.4 0 0.4]
-#MF2='mf2':'trimf',[0.1 0.5 0.9]
-#MF3='mf3':'trimf',[0.6 1 1.4]
-#
-#[Rules]
-#1, 1 (0.5) : 1
-#2, 2 (0.7) : 1
-#3, 3 (1) : 1
-#3, 2 (0.3) : 1
-#-3, 2 (0.3) : 1
-#-3, 2 (0.3) : 2""")
         self.get_object("filechooserdialog1").hide()
    
         
